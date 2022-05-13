@@ -1,0 +1,167 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="redsurgir-potential-heading"
+        data-cy="PotentialCreateUpdateHeading"
+        redsurgirTranslate="redsurgirApp.potential.home.createOrEditLabel"
+      >
+        Create or edit a Potential
+      </h2>
+
+      <div>
+        <redsurgir-alert-error></redsurgir-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" redsurgirTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.potential.exchangePartner" for="field_exchangePartner"
+            >Exchange Partner</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="exchangePartner"
+            id="field_exchangePartner"
+            data-cy="exchangePartner"
+            formControlName="exchangePartner"
+          />
+          <div
+            *ngIf="
+              editForm.get('exchangePartner')!.invalid &&
+              (editForm.get('exchangePartner')!.dirty || editForm.get('exchangePartner')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('exchangePartner')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.potential.consultant" for="field_consultant">Consultant</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="consultant"
+            id="field_consultant"
+            data-cy="consultant"
+            formControlName="consultant"
+          />
+          <div *ngIf="editForm.get('consultant')!.invalid && (editForm.get('consultant')!.dirty || editForm.get('consultant')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('consultant')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.potential.client" for="field_client">Client</label>
+          <input type="checkbox" class="form-check" name="client" id="field_client" data-cy="client" formControlName="client" />
+          <div *ngIf="editForm.get('client')!.invalid && (editForm.get('client')!.dirty || editForm.get('client')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('client')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.potential.collaborator" for="field_collaborator">Collaborator</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="collaborator"
+            id="field_collaborator"
+            data-cy="collaborator"
+            formControlName="collaborator"
+          />
+          <div
+            *ngIf="editForm.get('collaborator')!.invalid && (editForm.get('collaborator')!.dirty || editForm.get('collaborator')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('collaborator')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.potential.provider" for="field_provider">Provider</label>
+          <input type="checkbox" class="form-check" name="provider" id="field_provider" data-cy="provider" formControlName="provider" />
+          <div *ngIf="editForm.get('provider')!.invalid && (editForm.get('provider')!.dirty || editForm.get('provider')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('provider')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.potential.referrer" for="field_referrer">Referrer</label>
+          <input type="checkbox" class="form-check" name="referrer" id="field_referrer" data-cy="referrer" formControlName="referrer" />
+          <div *ngIf="editForm.get('referrer')!.invalid && (editForm.get('referrer')!.dirty || editForm.get('referrer')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referrer')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.potential.contactData" for="field_contactData">Contact Data</label>
+          <select class="form-control" id="field_contactData" data-cy="contactData" name="contactData" formControlName="contactData">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contactDataOption.id === editForm.get('contactData')!.value?.id ? editForm.get('contactData')!.value : contactDataOption
+              "
+              *ngFor="let contactDataOption of contactDataSharedCollection; trackBy: trackContactDataById"
+            >
+              {{ contactDataOption.documentNumberContact }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

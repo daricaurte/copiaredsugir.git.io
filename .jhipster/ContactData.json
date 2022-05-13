@@ -1,0 +1,132 @@
+{
+  "applications": ["redsurgir"],
+  "changelogDate": "20220513002403",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contact_data",
+  "fields": [
+    {
+      "fieldName": "documentNumberContact",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "cellPhoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "11"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "department",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "secondName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "firstLastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "secondLastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "neighborhood",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ContactData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "companyType",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "companyType",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "relation",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "relation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "contact",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "contact",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "networks",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "networks",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "qualification",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "qualification",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "priorityOrder",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "priorityOrder",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "potential",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "potential",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "documentNumber",
+      "otherEntityName": "affiliate",
+      "otherEntityRelationshipName": "contactData",
+      "relationshipName": "affiliate",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

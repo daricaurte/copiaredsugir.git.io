@@ -1,0 +1,36 @@
+{
+  "applications": ["redsurgir"],
+  "changelogDate": "20220513002303",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "company_type",
+  "fields": [
+    {
+      "fieldName": "primarySector",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "secondarySector",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "tertiarySector",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CompanyType",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "documentNumberContact",
+      "otherEntityName": "contactData",
+      "otherEntityRelationshipName": "companyType",
+      "relationshipName": "contactData",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

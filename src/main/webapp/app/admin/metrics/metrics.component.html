@@ -1,0 +1,55 @@
+<div>
+  <h2>
+    <span id="metrics-page-heading" redsurgirTranslate="metrics.title" data-cy="metricsPageHeading">Application Metrics</span>
+
+    <button class="btn btn-primary float-end" (click)="refresh()">
+      <fa-icon icon="sync"></fa-icon> <span redsurgirTranslate="metrics.refresh.button">Refresh</span>
+    </button>
+  </h2>
+
+  <h3 redsurgirTranslate="metrics.jvm.title">JVM Metrics</h3>
+
+  <div class="row" *ngIf="metrics && !updatingMetrics">
+    <redsurgir-jvm-memory class="col-md-4" [updating]="updatingMetrics" [jvmMemoryMetrics]="metrics.jvm"></redsurgir-jvm-memory>
+
+    <redsurgir-jvm-threads class="col-md-4" [threads]="threads"></redsurgir-jvm-threads>
+
+    <redsurgir-metrics-system
+      class="col-md-4"
+      [updating]="updatingMetrics"
+      [systemMetrics]="metrics.processMetrics"
+    ></redsurgir-metrics-system>
+  </div>
+
+  <redsurgir-metrics-garbagecollector
+    *ngIf="metrics && metricsKeyExists('garbageCollector')"
+    [updating]="updatingMetrics"
+    [garbageCollectorMetrics]="metrics.garbageCollector"
+  ></redsurgir-metrics-garbagecollector>
+
+  <div class="well well-lg" *ngIf="updatingMetrics" redsurgirTranslate="metrics.updating">Updating...</div>
+
+  <redsurgir-metrics-request
+    *ngIf="metrics && metricsKeyExists('http.server.requests')"
+    [updating]="updatingMetrics"
+    [requestMetrics]="metrics['http.server.requests']"
+  ></redsurgir-metrics-request>
+
+  <redsurgir-metrics-endpoints-requests
+    *ngIf="metrics && metricsKeyExists('services')"
+    [updating]="updatingMetrics"
+    [endpointsRequestsMetrics]="metrics.services"
+  ></redsurgir-metrics-endpoints-requests>
+
+  <redsurgir-metrics-cache
+    *ngIf="metrics && metricsKeyExists('cache')"
+    [updating]="updatingMetrics"
+    [cacheMetrics]="metrics.cache"
+  ></redsurgir-metrics-cache>
+
+  <redsurgir-metrics-datasource
+    *ngIf="metrics && metricsKeyExistsAndObjectNotEmpty('databases')"
+    [updating]="updatingMetrics"
+    [datasourceMetrics]="metrics.databases"
+  ></redsurgir-metrics-datasource>
+</div>

@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contact">
+      <h2 data-cy="contactDetailsHeading"><span redsurgirTranslate="redsurgirApp.contact.detail.title">Contact</span></h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contact.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contact3rdSectorHl">Contact 3rd Sector Hl</span></dt>
+        <dd>
+          <span>{{ contact.contact3rdSectorHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactAcademyHl">Contact Academy Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactAcademyHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactTeethHl">Contact Teeth Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactTeethHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactEmployeeHl">Contact Employee Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactEmployeeHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactEntFinanHl">Contact Ent Finan Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactEntFinanHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactStatusHl">Contact Status Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactStatusHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.internationalContactHl">International Contact Hl</span></dt>
+        <dd>
+          <span>{{ contact.internationalContactHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactMediaComuncHl">Contact Media Comunc Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactMediaComuncHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactOrgCommunityHl">Contact Org Community Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactOrgCommunityHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactRegulatoryOrganismsHl">Contact Regulatory Organisms Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactRegulatoryOrganismsHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactProveedoresHl">Contact Proveedores Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactProveedoresHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactSocialNetworks">Contact Social Networks</span></dt>
+        <dd>
+          <span>{{ contact.contactSocialNetworks }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactShareholdersHl">Contact Shareholders Hl</span></dt>
+        <dd>
+          <span>{{ contact.contactShareholdersHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contact.contactData">Contact Data</span></dt>
+        <dd>
+          <div *ngIf="contact.contactData">
+            <a [routerLink]="['/contact-data', contact.contactData?.id, 'view']">{{ contact.contactData?.documentNumberContact }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contact', contact.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

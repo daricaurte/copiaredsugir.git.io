@@ -1,0 +1,40 @@
+{
+  "redsurgirApp": {
+    "affiliate": {
+      "home": {
+        "title": "Affiliates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Affiliate",
+        "createOrEditLabel": "Create or edit a Affiliate",
+        "notFound": "No Affiliates found"
+      },
+      "created": "A new Affiliate is created with identifier {{ param }}",
+      "updated": "A Affiliate is updated with identifier {{ param }}",
+      "deleted": "A Affiliate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Affiliate {{ id }}?"
+      },
+      "detail": {
+        "title": "Affiliate"
+      },
+      "id": "ID",
+      "documentNumber": "Document Number",
+      "firstName": "First Name",
+      "secondName": "Second Name",
+      "firstLastName": "First Last Name",
+      "secondLastName": "Second Last Name",
+      "neighborhood": "Neighborhood",
+      "cellPhoneNumber": "Cell Phone Number",
+      "city": "City",
+      "department": "Department",
+      "email": "Email",
+      "callsign": "Callsign",
+      "country": "Country",
+      "phoneNumber": "Phone Number",
+      "rol": "Rol",
+      "user": "User",
+      "contactData": "Contact Data",
+      "documentType": "Document Type"
+    }
+  }
+}

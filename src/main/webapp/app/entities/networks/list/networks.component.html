@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="NetworksHeading">
+    <span redsurgirTranslate="redsurgirApp.networks.home.title">Networks</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.networks.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-networks"
+        [routerLink]="['/networks/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.networks.home.createLabel"> Create a new Networks </span>
+      </button>
+    </div>
+  </h2>
+
+  <redsurgir-alert-error></redsurgir-alert-error>
+
+  <redsurgir-alert></redsurgir-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="networks?.length === 0">
+    <span redsurgirTranslate="redsurgirApp.networks.home.notFound">No networks found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="networks && networks.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span redsurgirTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.networks3rdSectorHl">Networks 3rd Sector Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.academicNetworksHl">Academic Networks Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.customerNetworksHl">Customer Networks Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.employeeNetworksHl">Employee Networks Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.networksEntFinanHl">Networks Ent Finan Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.stateNetworksHl">State Networks Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.internationalNetworksHl">International Networks Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.mediaNetworksComuncHl">Media Networks Comunc Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.communityOrgNetworksHl">Community Org Networks Hl</span></th>
+          <th scope="col">
+            <span redsurgirTranslate="redsurgirApp.networks.regulatoryOrganismsNetworks">Regulatory Organisms Networks</span>
+          </th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.networksProvidersHl">Networks Providers Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.socialNetworks">Social Networks</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.shareholderNetworksHl">Shareholder Networks Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.networks.contactData">Contact Data</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let networks of networks; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/networks', networks.id, 'view']">{{ networks.id }}</a>
+          </td>
+          <td>{{ networks.networks3rdSectorHl }}</td>
+          <td>{{ networks.academicNetworksHl }}</td>
+          <td>{{ networks.customerNetworksHl }}</td>
+          <td>{{ networks.employeeNetworksHl }}</td>
+          <td>{{ networks.networksEntFinanHl }}</td>
+          <td>{{ networks.stateNetworksHl }}</td>
+          <td>{{ networks.internationalNetworksHl }}</td>
+          <td>{{ networks.mediaNetworksComuncHl }}</td>
+          <td>{{ networks.communityOrgNetworksHl }}</td>
+          <td>{{ networks.regulatoryOrganismsNetworks }}</td>
+          <td>{{ networks.networksProvidersHl }}</td>
+          <td>{{ networks.socialNetworks }}</td>
+          <td>{{ networks.shareholderNetworksHl }}</td>
+          <td>
+            <div *ngIf="networks.contactData">
+              <a [routerLink]="['/contact-data', networks.contactData?.id, 'view']">{{ networks.contactData?.documentNumberContact }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/networks', networks.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/networks', networks.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(networks)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

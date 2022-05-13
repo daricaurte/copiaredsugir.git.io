@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="CompanyTypeHeading">
+    <span redsurgirTranslate="redsurgirApp.companyType.home.title">Company Types</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.companyType.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-company-type"
+        [routerLink]="['/company-type/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.companyType.home.createLabel"> Create a new Company Type </span>
+      </button>
+    </div>
+  </h2>
+
+  <redsurgir-alert-error></redsurgir-alert-error>
+
+  <redsurgir-alert></redsurgir-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="companyTypes?.length === 0">
+    <span redsurgirTranslate="redsurgirApp.companyType.home.notFound">No companyTypes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="companyTypes && companyTypes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span redsurgirTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.companyType.primarySector">Primary Sector</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.companyType.secondarySector">Secondary Sector</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.companyType.tertiarySector">Tertiary Sector</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.companyType.contactData">Contact Data</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let companyType of companyTypes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/company-type', companyType.id, 'view']">{{ companyType.id }}</a>
+          </td>
+          <td>{{ companyType.primarySector }}</td>
+          <td>{{ companyType.secondarySector }}</td>
+          <td>{{ companyType.tertiarySector }}</td>
+          <td>
+            <div *ngIf="companyType.contactData">
+              <a [routerLink]="['/contact-data', companyType.contactData?.id, 'view']">{{
+                companyType.contactData?.documentNumberContact
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/company-type', companyType.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/company-type', companyType.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(companyType)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

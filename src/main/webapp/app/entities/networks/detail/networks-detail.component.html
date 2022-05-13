@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="networks">
+      <h2 data-cy="networksDetailsHeading"><span redsurgirTranslate="redsurgirApp.networks.detail.title">Networks</span></h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ networks.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.networks3rdSectorHl">Networks 3rd Sector Hl</span></dt>
+        <dd>
+          <span>{{ networks.networks3rdSectorHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.academicNetworksHl">Academic Networks Hl</span></dt>
+        <dd>
+          <span>{{ networks.academicNetworksHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.customerNetworksHl">Customer Networks Hl</span></dt>
+        <dd>
+          <span>{{ networks.customerNetworksHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.employeeNetworksHl">Employee Networks Hl</span></dt>
+        <dd>
+          <span>{{ networks.employeeNetworksHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.networksEntFinanHl">Networks Ent Finan Hl</span></dt>
+        <dd>
+          <span>{{ networks.networksEntFinanHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.stateNetworksHl">State Networks Hl</span></dt>
+        <dd>
+          <span>{{ networks.stateNetworksHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.internationalNetworksHl">International Networks Hl</span></dt>
+        <dd>
+          <span>{{ networks.internationalNetworksHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.mediaNetworksComuncHl">Media Networks Comunc Hl</span></dt>
+        <dd>
+          <span>{{ networks.mediaNetworksComuncHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.communityOrgNetworksHl">Community Org Networks Hl</span></dt>
+        <dd>
+          <span>{{ networks.communityOrgNetworksHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.regulatoryOrganismsNetworks">Regulatory Organisms Networks</span></dt>
+        <dd>
+          <span>{{ networks.regulatoryOrganismsNetworks }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.networksProvidersHl">Networks Providers Hl</span></dt>
+        <dd>
+          <span>{{ networks.networksProvidersHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.socialNetworks">Social Networks</span></dt>
+        <dd>
+          <span>{{ networks.socialNetworks }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.shareholderNetworksHl">Shareholder Networks Hl</span></dt>
+        <dd>
+          <span>{{ networks.shareholderNetworksHl }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.networks.contactData">Contact Data</span></dt>
+        <dd>
+          <div *ngIf="networks.contactData">
+            <a [routerLink]="['/contact-data', networks.contactData?.id, 'view']">{{ networks.contactData?.documentNumberContact }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/networks', networks.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

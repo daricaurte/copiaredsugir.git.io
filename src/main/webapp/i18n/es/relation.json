@@ -1,0 +1,27 @@
+{
+  "redsurgirApp": {
+    "relation": {
+      "home": {
+        "title": "Relations",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Relation",
+        "createOrEditLabel": "Crear o editar Relation",
+        "notFound": "Ningún Relations encontrado"
+      },
+      "created": "Un nuevo Relation ha sido creado con el identificador {{ param }}",
+      "updated": "Un Relation ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Relation ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Relation {{ id }}?"
+      },
+      "detail": {
+        "title": "Relation"
+      },
+      "id": "ID",
+      "familyRelation": "Family Relation",
+      "workRelation": "Work Relation",
+      "personalRelation": "Personal Relation",
+      "contactData": "Contact Data"
+    }
+  }
+}

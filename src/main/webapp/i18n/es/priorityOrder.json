@@ -1,0 +1,27 @@
+{
+  "redsurgirApp": {
+    "priorityOrder": {
+      "home": {
+        "title": "Priority Orders",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Priority Order",
+        "createOrEditLabel": "Crear o editar Priority Order",
+        "notFound": "Ningún Priority Orders encontrado"
+      },
+      "created": "Un nuevo Priority Order ha sido creado con el identificador {{ param }}",
+      "updated": "Un Priority Order ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Priority Order ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Priority Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Priority Order"
+      },
+      "id": "ID",
+      "qualifLogarit": "Qualif Logarit",
+      "qualifAffiliate": "Qualif Affiliate",
+      "qualifDefinitive": "Qualif Definitive",
+      "contactData": "Contact Data"
+    }
+  }
+}

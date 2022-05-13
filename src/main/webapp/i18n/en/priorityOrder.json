@@ -1,0 +1,27 @@
+{
+  "redsurgirApp": {
+    "priorityOrder": {
+      "home": {
+        "title": "Priority Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Priority Order",
+        "createOrEditLabel": "Create or edit a Priority Order",
+        "notFound": "No Priority Orders found"
+      },
+      "created": "A new Priority Order is created with identifier {{ param }}",
+      "updated": "A Priority Order is updated with identifier {{ param }}",
+      "deleted": "A Priority Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Priority Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Priority Order"
+      },
+      "id": "ID",
+      "qualifLogarit": "Qualif Logarit",
+      "qualifAffiliate": "Qualif Affiliate",
+      "qualifDefinitive": "Qualif Definitive",
+      "contactData": "Contact Data"
+    }
+  }
+}

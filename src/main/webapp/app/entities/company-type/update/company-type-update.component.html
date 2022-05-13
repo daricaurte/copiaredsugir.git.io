@@ -1,0 +1,95 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="redsurgir-company-type-heading"
+        data-cy="CompanyTypeCreateUpdateHeading"
+        redsurgirTranslate="redsurgirApp.companyType.home.createOrEditLabel"
+      >
+        Create or edit a Company Type
+      </h2>
+
+      <div>
+        <redsurgir-alert-error></redsurgir-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" redsurgirTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.companyType.primarySector" for="field_primarySector"
+            >Primary Sector</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="primarySector"
+            id="field_primarySector"
+            data-cy="primarySector"
+            formControlName="primarySector"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.companyType.secondarySector" for="field_secondarySector"
+            >Secondary Sector</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="secondarySector"
+            id="field_secondarySector"
+            data-cy="secondarySector"
+            formControlName="secondarySector"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.companyType.tertiarySector" for="field_tertiarySector"
+            >Tertiary Sector</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="tertiarySector"
+            id="field_tertiarySector"
+            data-cy="tertiarySector"
+            formControlName="tertiarySector"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.companyType.contactData" for="field_contactData">Contact Data</label>
+          <select class="form-control" id="field_contactData" data-cy="contactData" name="contactData" formControlName="contactData">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contactDataOption.id === editForm.get('contactData')!.value?.id ? editForm.get('contactData')!.value : contactDataOption
+              "
+              *ngFor="let contactDataOption of contactDataSharedCollection; trackBy: trackContactDataById"
+            >
+              {{ contactDataOption.documentNumberContact }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

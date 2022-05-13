@@ -1,0 +1,42 @@
+{
+  "redsurgirApp": {
+    "contactData": {
+      "home": {
+        "title": "Contact Data",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Contact Data",
+        "createOrEditLabel": "Crear o editar Contact Data",
+        "notFound": "Ningún Contact Data encontrado"
+      },
+      "created": "Un nuevo Contact Data ha sido creado con el identificador {{ param }}",
+      "updated": "Un Contact Data ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Contact Data ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Contact Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Data"
+      },
+      "id": "ID",
+      "documentNumberContact": "Document Number Contact",
+      "cellPhoneNumber": "Cell Phone Number",
+      "country": "Country",
+      "city": "City",
+      "email": "Email",
+      "department": "Department",
+      "firstName": "First Name",
+      "secondName": "Second Name",
+      "firstLastName": "First Last Name",
+      "secondLastName": "Second Last Name",
+      "neighborhood": "Neighborhood",
+      "companyType": "Company Type",
+      "relation": "Relation",
+      "contact": "Contact",
+      "networks": "Networks",
+      "qualification": "Qualification",
+      "priorityOrder": "Priority Order",
+      "potential": "Potential",
+      "affiliate": "Affiliate"
+    }
+  }
+}

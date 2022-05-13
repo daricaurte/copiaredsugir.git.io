@@ -1,0 +1,54 @@
+{
+  "applications": ["redsurgir"],
+  "changelogDate": "20220513002803",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "qualification",
+  "fields": [
+    {
+      "fieldName": "qualif1",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    },
+    {
+      "fieldName": "qualif2",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    },
+    {
+      "fieldName": "qualif3",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    },
+    {
+      "fieldName": "qualif4",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    },
+    {
+      "fieldName": "qualif1BussinessViability",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Qualification",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "documentNumberContact",
+      "otherEntityName": "contactData",
+      "otherEntityRelationshipName": "qualification",
+      "relationshipName": "contactData",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,164 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="redsurgir-qualification-heading"
+        data-cy="QualificationCreateUpdateHeading"
+        redsurgirTranslate="redsurgirApp.qualification.home.createOrEditLabel"
+      >
+        Create or edit a Qualification
+      </h2>
+
+      <div>
+        <redsurgir-alert-error></redsurgir-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" redsurgirTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.qualification.qualif1" for="field_qualif1">Qualif 1</label>
+          <select class="form-control" name="qualif1" formControlName="qualif1" id="field_qualif1" data-cy="qualif1">
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('qualif1')!.invalid && (editForm.get('qualif1')!.dirty || editForm.get('qualif1')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualif1')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.qualification.qualif2" for="field_qualif2">Qualif 2</label>
+          <select class="form-control" name="qualif2" formControlName="qualif2" id="field_qualif2" data-cy="qualif2">
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('qualif2')!.invalid && (editForm.get('qualif2')!.dirty || editForm.get('qualif2')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualif2')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.qualification.qualif3" for="field_qualif3">Qualif 3</label>
+          <select class="form-control" name="qualif3" formControlName="qualif3" id="field_qualif3" data-cy="qualif3">
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('qualif3')!.invalid && (editForm.get('qualif3')!.dirty || editForm.get('qualif3')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualif3')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.qualification.qualif4" for="field_qualif4">Qualif 4</label>
+          <select class="form-control" name="qualif4" formControlName="qualif4" id="field_qualif4" data-cy="qualif4">
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('qualif4')!.invalid && (editForm.get('qualif4')!.dirty || editForm.get('qualif4')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualif4')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            redsurgirTranslate="redsurgirApp.qualification.qualif1BussinessViability"
+            for="field_qualif1BussinessViability"
+            >Qualif 1 Bussiness Viability</label
+          >
+          <select
+            class="form-control"
+            name="qualif1BussinessViability"
+            formControlName="qualif1BussinessViability"
+            id="field_qualif1BussinessViability"
+            data-cy="qualif1BussinessViability"
+          >
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('qualif1BussinessViability')!.invalid &&
+              (editForm.get('qualif1BussinessViability')!.dirty || editForm.get('qualif1BussinessViability')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualif1BussinessViability')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.qualification.contactData" for="field_contactData">Contact Data</label>
+          <select class="form-control" id="field_contactData" data-cy="contactData" name="contactData" formControlName="contactData">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contactDataOption.id === editForm.get('contactData')!.value?.id ? editForm.get('contactData')!.value : contactDataOption
+              "
+              *ngFor="let contactDataOption of contactDataSharedCollection; trackBy: trackContactDataById"
+            >
+              {{ contactDataOption.documentNumberContact }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

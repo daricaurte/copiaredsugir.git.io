@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="ContactHeading">
+    <span redsurgirTranslate="redsurgirApp.contact.home.title">Contacts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.contact.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-contact"
+        [routerLink]="['/contact/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.contact.home.createLabel"> Create a new Contact </span>
+      </button>
+    </div>
+  </h2>
+
+  <redsurgir-alert-error></redsurgir-alert-error>
+
+  <redsurgir-alert></redsurgir-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="contacts?.length === 0">
+    <span redsurgirTranslate="redsurgirApp.contact.home.notFound">No contacts found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="contacts && contacts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span redsurgirTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contact3rdSectorHl">Contact 3rd Sector Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactAcademyHl">Contact Academy Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactTeethHl">Contact Teeth Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactEmployeeHl">Contact Employee Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactEntFinanHl">Contact Ent Finan Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactStatusHl">Contact Status Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.internationalContactHl">International Contact Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactMediaComuncHl">Contact Media Comunc Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactOrgCommunityHl">Contact Org Community Hl</span></th>
+          <th scope="col">
+            <span redsurgirTranslate="redsurgirApp.contact.contactRegulatoryOrganismsHl">Contact Regulatory Organisms Hl</span>
+          </th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactProveedoresHl">Contact Proveedores Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactSocialNetworks">Contact Social Networks</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactShareholdersHl">Contact Shareholders Hl</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.contact.contactData">Contact Data</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/contact', contact.id, 'view']">{{ contact.id }}</a>
+          </td>
+          <td>{{ contact.contact3rdSectorHl }}</td>
+          <td>{{ contact.contactAcademyHl }}</td>
+          <td>{{ contact.contactTeethHl }}</td>
+          <td>{{ contact.contactEmployeeHl }}</td>
+          <td>{{ contact.contactEntFinanHl }}</td>
+          <td>{{ contact.contactStatusHl }}</td>
+          <td>{{ contact.internationalContactHl }}</td>
+          <td>{{ contact.contactMediaComuncHl }}</td>
+          <td>{{ contact.contactOrgCommunityHl }}</td>
+          <td>{{ contact.contactRegulatoryOrganismsHl }}</td>
+          <td>{{ contact.contactProveedoresHl }}</td>
+          <td>{{ contact.contactSocialNetworks }}</td>
+          <td>{{ contact.contactShareholdersHl }}</td>
+          <td>
+            <div *ngIf="contact.contactData">
+              <a [routerLink]="['/contact-data', contact.contactData?.id, 'view']">{{ contact.contactData?.documentNumberContact }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/contact', contact.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/contact', contact.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(contact)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

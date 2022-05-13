@@ -1,0 +1,29 @@
+{
+  "redsurgirApp": {
+    "qualification": {
+      "home": {
+        "title": "Qualifications",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Qualification",
+        "createOrEditLabel": "Create or edit a Qualification",
+        "notFound": "No Qualifications found"
+      },
+      "created": "A new Qualification is created with identifier {{ param }}",
+      "updated": "A Qualification is updated with identifier {{ param }}",
+      "deleted": "A Qualification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Qualification {{ id }}?"
+      },
+      "detail": {
+        "title": "Qualification"
+      },
+      "id": "ID",
+      "qualif1": "Qualif 1",
+      "qualif2": "Qualif 2",
+      "qualif3": "Qualif 3",
+      "qualif4": "Qualif 4",
+      "qualif1BussinessViability": "Qualif 1 Bussiness Viability",
+      "contactData": "Contact Data"
+    }
+  }
+}

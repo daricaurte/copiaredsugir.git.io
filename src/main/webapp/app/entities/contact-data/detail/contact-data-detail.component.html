@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contactData">
+      <h2 data-cy="contactDataDetailsHeading"><span redsurgirTranslate="redsurgirApp.contactData.detail.title">Contact Data</span></h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contactData.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.documentNumberContact">Document Number Contact</span></dt>
+        <dd>
+          <span>{{ contactData.documentNumberContact }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.cellPhoneNumber">Cell Phone Number</span></dt>
+        <dd>
+          <span>{{ contactData.cellPhoneNumber }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.country">Country</span></dt>
+        <dd>
+          <span>{{ contactData.country }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.city">City</span></dt>
+        <dd>
+          <span>{{ contactData.city }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.email">Email</span></dt>
+        <dd>
+          <span>{{ contactData.email }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.department">Department</span></dt>
+        <dd>
+          <span>{{ contactData.department }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ contactData.firstName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.secondName">Second Name</span></dt>
+        <dd>
+          <span>{{ contactData.secondName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.firstLastName">First Last Name</span></dt>
+        <dd>
+          <span>{{ contactData.firstLastName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.secondLastName">Second Last Name</span></dt>
+        <dd>
+          <span>{{ contactData.secondLastName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.neighborhood">Neighborhood</span></dt>
+        <dd>
+          <span>{{ contactData.neighborhood }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.contactData.affiliate">Affiliate</span></dt>
+        <dd>
+          <div *ngIf="contactData.affiliate">
+            <a [routerLink]="['/affiliate', contactData.affiliate?.id, 'view']">{{ contactData.affiliate?.documentNumber }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contact-data', contactData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

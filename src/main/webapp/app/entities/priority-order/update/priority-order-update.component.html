@@ -1,0 +1,148 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="redsurgir-priority-order-heading"
+        data-cy="PriorityOrderCreateUpdateHeading"
+        redsurgirTranslate="redsurgirApp.priorityOrder.home.createOrEditLabel"
+      >
+        Create or edit a Priority Order
+      </h2>
+
+      <div>
+        <redsurgir-alert-error></redsurgir-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" redsurgirTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.priorityOrder.qualifLogarit" for="field_qualifLogarit"
+            >Qualif Logarit</label
+          >
+          <select
+            class="form-control"
+            name="qualifLogarit"
+            formControlName="qualifLogarit"
+            id="field_qualifLogarit"
+            data-cy="qualifLogarit"
+          >
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('qualifLogarit')!.invalid && (editForm.get('qualifLogarit')!.dirty || editForm.get('qualifLogarit')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualifLogarit')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.priorityOrder.qualifAffiliate" for="field_qualifAffiliate"
+            >Qualif Affiliate</label
+          >
+          <select
+            class="form-control"
+            name="qualifAffiliate"
+            formControlName="qualifAffiliate"
+            id="field_qualifAffiliate"
+            data-cy="qualifAffiliate"
+          >
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('qualifAffiliate')!.invalid &&
+              (editForm.get('qualifAffiliate')!.dirty || editForm.get('qualifAffiliate')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualifAffiliate')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.priorityOrder.qualifDefinitive" for="field_qualifDefinitive"
+            >Qualif Definitive</label
+          >
+          <select
+            class="form-control"
+            name="qualifDefinitive"
+            formControlName="qualifDefinitive"
+            id="field_qualifDefinitive"
+            data-cy="qualifDefinitive"
+          >
+            <option [ngValue]="null">{{ 'redsurgirApp.Designation.null' | translate }}</option>
+            <option *ngFor="let designation of designationValues" [value]="designation">
+              {{ 'redsurgirApp.Designation.' + designation | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('qualifDefinitive')!.invalid &&
+              (editForm.get('qualifDefinitive')!.dirty || editForm.get('qualifDefinitive')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('qualifDefinitive')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.priorityOrder.contactData" for="field_contactData">Contact Data</label>
+          <select class="form-control" id="field_contactData" data-cy="contactData" name="contactData" formControlName="contactData">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contactDataOption.id === editForm.get('contactData')!.value?.id ? editForm.get('contactData')!.value : contactDataOption
+              "
+              *ngFor="let contactDataOption of contactDataSharedCollection; trackBy: trackContactDataById"
+            >
+              {{ contactDataOption.documentNumberContact }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

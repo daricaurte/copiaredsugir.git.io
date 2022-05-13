@@ -1,0 +1,189 @@
+application{
+	config{
+    baseName redsurgir
+    applicationType monolith
+    packageName co.edu.sena
+    authenticationType jwt
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    cacheProvider no
+    buildTool maven
+    clientFramework angularX
+    enableTranslation true
+    nativeLanguage es
+    languages [en, es]
+    websocket false
+    //testFrameworks [cucumber]
+    //entitySuffix false
+    jhiPrefix redsurgir
+    reactive false
+    serverPort 8080
+    searchEngine false
+    clientTheme Litera
+    clientThemeVariant Light
+    }
+    
+    entities *
+}
+
+enum State{
+	ACTIVE(Activo),
+    INACTIVE(Inactivo)
+}
+
+enum Rol{
+	AFFILIATE(Affiliate),
+    COACH(Coach)
+}
+
+entity DocumentType{
+	initials String required maxlength(10) unique,
+    documentName String required maxlength(100) unique,
+    stateDocumentType State required
+}
+
+entity Affiliate{
+	documentNumber String required maxlength(50),
+    firstName String required maxlength(50),
+    secondName String maxlength(50),
+    firstLastName String required maxlength(50),
+    secondLastName String maxlength(50),
+    neighborhood String required maxlength(50),
+    cellPhoneNumber String required maxlength(11) unique,
+    city String required maxlength(50),
+    department String required maxlength(50),
+    email String required maxlength(50) unique,
+    callsign String required maxlength(4) unique,
+    country String required maxlength(50),
+    phoneNumber String required maxlength(11),
+    rol Rol required
+}
+
+relationship OneToMany{//Izquierda a derecha
+	DocumentType to Affiliate{documentType(documentName)}
+}
+
+relationship OneToOne {// Derecha a izquierda
+	Affiliate{user(login)} to User
+}
+
+entity CompanyType{
+	primarySector Boolean,
+    secondarySector Boolean,
+    tertiarySector Boolean
+}
+
+entity ContactData{
+	documentNumberContact String required maxlength(50),
+	cellPhoneNumber String required maxlength(11) unique,
+    country String required maxlength(50),
+    city String required maxlength(50),
+    email String required maxlength(50) unique,
+    department String required maxlength(50),
+    firstName String required maxlength(50),
+    secondName String maxlength(50),
+    firstLastName String required maxlength(50),
+    secondLastName String maxlength(50),
+    neighborhood String required maxlength(50)
+}
+
+relationship OneToMany{//Izquierda a derecha
+	Affiliate to ContactData{affiliate(documentNumber)}
+}
+
+relationship OneToMany{//Izquierda a derecha
+	ContactData to CompanyType{contactData(documentNumberContact)}
+}
+
+entity Relation{
+	familyRelation Boolean required,
+    workRelation Boolean required,
+    personalRelation Boolean required
+}
+
+relationship OneToMany{//Izquierda a derecha
+	ContactData to Relation{contactData(documentNumberContact)}
+}
+
+entity Contact{
+	contact3rdSectorHl Boolean required, 
+    contactAcademyHl Boolean required,
+    contactTeethHl Boolean required,
+    contactEmployeeHl Boolean required,
+    contactEntFinanHl Boolean required,
+    contactStatusHl Boolean required,
+    internationalContactHl Boolean required,
+    contactMediaComuncHl Boolean required,
+    contactOrgCommunityHl Boolean required,
+    contactRegulatoryOrganismsHl Boolean required,
+    contactProveedoresHl Boolean required,
+    contactSocialNetworks Boolean required,
+    contactShareholdersHl Boolean required
+}
+
+relationship OneToMany{//Izquierda a derecha
+	ContactData to Contact{contactData(documentNumberContact)}
+}
+
+entity Networks{
+	networks3rdSectorHl Boolean required, 
+    academicNetworksHl Boolean required,
+    customerNetworksHl Boolean required,
+    employeeNetworksHl Boolean required,
+    networksEntFinanHl Boolean required,
+    stateNetworksHl Boolean required,
+    internationalNetworksHl Boolean required,
+    mediaNetworksComuncHl Boolean required,
+    communityOrgNetworksHl Boolean required,
+    regulatoryOrganismsNetworks Boolean required,
+    networksProvidersHl Boolean required,
+    socialNetworks Boolean required,
+    shareholderNetworksHl Boolean required
+}
+
+relationship OneToMany{//Izquierda a derecha
+	ContactData to Networks{contactData(documentNumberContact)}
+}
+
+enum Designation{
+	One("1.0"),
+    Two("2.0"),
+    Three("3.0"),
+    Four("4.0"),
+    Five("5.0")
+}
+
+entity Qualification{
+	qualif1 Designation required,
+    qualif2 Designation required,
+    qualif3 Designation required,
+    qualif4 Designation required,
+    qualif1BussinessViability Designation required
+}
+
+relationship OneToMany{//Izquierda a derecha
+	ContactData to Qualification{contactData(documentNumberContact)}
+}
+
+entity PriorityOrder{
+	qualifLogarit Designation required,
+    qualifAffiliate Designation required,
+    qualifDefinitive Designation required,
+}
+
+relationship OneToMany{//Izquierda a derecha
+	ContactData to PriorityOrder{contactData(documentNumberContact)}
+}
+
+entity Potential{
+	exchangePartner Boolean required,
+    consultant Boolean required,
+    client Boolean required,
+    collaborator Boolean required,
+    provider Boolean required,
+    referrer Boolean required
+}
+
+relationship OneToMany{//Izquierda a derecha
+	ContactData to Potential{contactData(documentNumberContact)}
+}

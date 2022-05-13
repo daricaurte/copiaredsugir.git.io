@@ -1,0 +1,30 @@
+{
+  "redsurgirApp": {
+    "potential": {
+      "home": {
+        "title": "Potentials",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Potential",
+        "createOrEditLabel": "Create or edit a Potential",
+        "notFound": "No Potentials found"
+      },
+      "created": "A new Potential is created with identifier {{ param }}",
+      "updated": "A Potential is updated with identifier {{ param }}",
+      "deleted": "A Potential is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Potential {{ id }}?"
+      },
+      "detail": {
+        "title": "Potential"
+      },
+      "id": "ID",
+      "exchangePartner": "Exchange Partner",
+      "consultant": "Consultant",
+      "client": "Client",
+      "collaborator": "Collaborator",
+      "provider": "Provider",
+      "referrer": "Referrer",
+      "contactData": "Contact Data"
+    }
+  }
+}

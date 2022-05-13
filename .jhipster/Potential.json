@@ -1,0 +1,54 @@
+{
+  "applications": ["redsurgir"],
+  "changelogDate": "20220513003003",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "potential",
+  "fields": [
+    {
+      "fieldName": "exchangePartner",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "consultant",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "client",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "collaborator",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "provider",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "referrer",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Potential",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "documentNumberContact",
+      "otherEntityName": "contactData",
+      "otherEntityRelationshipName": "potential",
+      "relationshipName": "contactData",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

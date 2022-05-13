@@ -1,0 +1,42 @@
+{
+  "applications": ["redsurgir"],
+  "changelogDate": "20220513002903",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "priority_order",
+  "fields": [
+    {
+      "fieldName": "qualifLogarit",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    },
+    {
+      "fieldName": "qualifAffiliate",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    },
+    {
+      "fieldName": "qualifDefinitive",
+      "fieldType": "Designation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "One (1.0),Two (2.0),Three (3.0),Four (4.0),Five (5.0)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PriorityOrder",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "documentNumberContact",
+      "otherEntityName": "contactData",
+      "otherEntityRelationshipName": "priorityOrder",
+      "relationshipName": "contactData",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

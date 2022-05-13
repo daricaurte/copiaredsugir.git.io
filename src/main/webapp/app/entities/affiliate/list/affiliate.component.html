@@ -1,0 +1,114 @@
+<div>
+  <h2 id="page-heading" data-cy="AffiliateHeading">
+    <span redsurgirTranslate="redsurgirApp.affiliate.home.title">Affiliates</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.affiliate.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-affiliate"
+        [routerLink]="['/affiliate/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.affiliate.home.createLabel"> Create a new Affiliate </span>
+      </button>
+    </div>
+  </h2>
+
+  <redsurgir-alert-error></redsurgir-alert-error>
+
+  <redsurgir-alert></redsurgir-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="affiliates?.length === 0">
+    <span redsurgirTranslate="redsurgirApp.affiliate.home.notFound">No affiliates found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="affiliates && affiliates.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span redsurgirTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.documentNumber">Document Number</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.firstName">First Name</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.secondName">Second Name</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.firstLastName">First Last Name</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.secondLastName">Second Last Name</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.neighborhood">Neighborhood</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.cellPhoneNumber">Cell Phone Number</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.city">City</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.department">Department</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.email">Email</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.callsign">Callsign</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.country">Country</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.phoneNumber">Phone Number</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.rol">Rol</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.user">User</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.affiliate.documentType">Document Type</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let affiliate of affiliates; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/affiliate', affiliate.id, 'view']">{{ affiliate.id }}</a>
+          </td>
+          <td>{{ affiliate.documentNumber }}</td>
+          <td>{{ affiliate.firstName }}</td>
+          <td>{{ affiliate.secondName }}</td>
+          <td>{{ affiliate.firstLastName }}</td>
+          <td>{{ affiliate.secondLastName }}</td>
+          <td>{{ affiliate.neighborhood }}</td>
+          <td>{{ affiliate.cellPhoneNumber }}</td>
+          <td>{{ affiliate.city }}</td>
+          <td>{{ affiliate.department }}</td>
+          <td>{{ affiliate.email }}</td>
+          <td>{{ affiliate.callsign }}</td>
+          <td>{{ affiliate.country }}</td>
+          <td>{{ affiliate.phoneNumber }}</td>
+          <td redsurgirTranslate="{{ 'redsurgirApp.Rol.' + affiliate.rol }}">{{ affiliate.rol }}</td>
+          <td>
+            {{ affiliate.user?.login }}
+          </td>
+          <td>
+            <div *ngIf="affiliate.documentType">
+              <a [routerLink]="['/document-type', affiliate.documentType?.id, 'view']">{{ affiliate.documentType?.documentName }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/affiliate', affiliate.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/affiliate', affiliate.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(affiliate)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

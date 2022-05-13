@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="potential">
+      <h2 data-cy="potentialDetailsHeading"><span redsurgirTranslate="redsurgirApp.potential.detail.title">Potential</span></h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ potential.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.potential.exchangePartner">Exchange Partner</span></dt>
+        <dd>
+          <span>{{ potential.exchangePartner }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.potential.consultant">Consultant</span></dt>
+        <dd>
+          <span>{{ potential.consultant }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.potential.client">Client</span></dt>
+        <dd>
+          <span>{{ potential.client }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.potential.collaborator">Collaborator</span></dt>
+        <dd>
+          <span>{{ potential.collaborator }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.potential.provider">Provider</span></dt>
+        <dd>
+          <span>{{ potential.provider }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.potential.referrer">Referrer</span></dt>
+        <dd>
+          <span>{{ potential.referrer }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.potential.contactData">Contact Data</span></dt>
+        <dd>
+          <div *ngIf="potential.contactData">
+            <a [routerLink]="['/contact-data', potential.contactData?.id, 'view']">{{ potential.contactData?.documentNumberContact }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/potential', potential.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

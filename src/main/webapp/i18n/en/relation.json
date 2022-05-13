@@ -1,0 +1,27 @@
+{
+  "redsurgirApp": {
+    "relation": {
+      "home": {
+        "title": "Relations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Relation",
+        "createOrEditLabel": "Create or edit a Relation",
+        "notFound": "No Relations found"
+      },
+      "created": "A new Relation is created with identifier {{ param }}",
+      "updated": "A Relation is updated with identifier {{ param }}",
+      "deleted": "A Relation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Relation {{ id }}?"
+      },
+      "detail": {
+        "title": "Relation"
+      },
+      "id": "ID",
+      "familyRelation": "Family Relation",
+      "workRelation": "Work Relation",
+      "personalRelation": "Personal Relation",
+      "contactData": "Contact Data"
+    }
+  }
+}

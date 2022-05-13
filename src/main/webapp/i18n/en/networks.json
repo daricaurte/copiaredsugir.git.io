@@ -1,0 +1,37 @@
+{
+  "redsurgirApp": {
+    "networks": {
+      "home": {
+        "title": "Networks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Networks",
+        "createOrEditLabel": "Create or edit a Networks",
+        "notFound": "No Networks found"
+      },
+      "created": "A new Networks is created with identifier {{ param }}",
+      "updated": "A Networks is updated with identifier {{ param }}",
+      "deleted": "A Networks is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Networks {{ id }}?"
+      },
+      "detail": {
+        "title": "Networks"
+      },
+      "id": "ID",
+      "networks3rdSectorHl": "Networks 3rd Sector Hl",
+      "academicNetworksHl": "Academic Networks Hl",
+      "customerNetworksHl": "Customer Networks Hl",
+      "employeeNetworksHl": "Employee Networks Hl",
+      "networksEntFinanHl": "Networks Ent Finan Hl",
+      "stateNetworksHl": "State Networks Hl",
+      "internationalNetworksHl": "International Networks Hl",
+      "mediaNetworksComuncHl": "Media Networks Comunc Hl",
+      "communityOrgNetworksHl": "Community Org Networks Hl",
+      "regulatoryOrganismsNetworks": "Regulatory Organisms Networks",
+      "networksProvidersHl": "Networks Providers Hl",
+      "socialNetworks": "Social Networks",
+      "shareholderNetworksHl": "Shareholder Networks Hl",
+      "contactData": "Contact Data"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+id;networks_3rd_sector_hl;academic_networks_hl;customer_networks_hl;employee_networks_hl;networks_ent_finan_hl;state_networks_hl;international_networks_hl;media_networks_comunc_hl;community_org_networks_hl;regulatory_organisms_networks;networks_providers_hl;social_networks;shareholder_networks_hl
+1;false;false;false;true;true;false;true;true;true;true;true;true;false
+2;true;true;true;false;false;false;true;false;false;false;true;false;false
+3;true;false;true;true;true;false;true;true;false;false;false;true;false
+4;true;true;false;false;true;false;false;true;false;true;true;false;false
+5;true;false;false;true;false;true;false;true;false;false;true;false;false
+6;true;true;true;false;true;true;false;false;false;true;true;false;true
+7;false;false;false;false;true;true;false;false;true;false;false;false;false
+8;false;true;false;true;true;true;false;false;true;true;false;false;false
+9;false;false;true;true;true;true;false;false;false;false;false;true;true
+10;true;false;false;true;true;true;true;false;true;true;false;true;false

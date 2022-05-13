@@ -1,0 +1,37 @@
+{
+  "redsurgirApp": {
+    "contact": {
+      "home": {
+        "title": "Contacts",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Contact",
+        "createOrEditLabel": "Crear o editar Contact",
+        "notFound": "Ningún Contacts encontrado"
+      },
+      "created": "Un nuevo Contact ha sido creado con el identificador {{ param }}",
+      "updated": "Un Contact ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Contact ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Contact {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact"
+      },
+      "id": "ID",
+      "contact3rdSectorHl": "Contact 3rd Sector Hl",
+      "contactAcademyHl": "Contact Academy Hl",
+      "contactTeethHl": "Contact Teeth Hl",
+      "contactEmployeeHl": "Contact Employee Hl",
+      "contactEntFinanHl": "Contact Ent Finan Hl",
+      "contactStatusHl": "Contact Status Hl",
+      "internationalContactHl": "International Contact Hl",
+      "contactMediaComuncHl": "Contact Media Comunc Hl",
+      "contactOrgCommunityHl": "Contact Org Community Hl",
+      "contactRegulatoryOrganismsHl": "Contact Regulatory Organisms Hl",
+      "contactProveedoresHl": "Contact Proveedores Hl",
+      "contactSocialNetworks": "Contact Social Networks",
+      "contactShareholdersHl": "Contact Shareholders Hl",
+      "contactData": "Contact Data"
+    }
+  }
+}

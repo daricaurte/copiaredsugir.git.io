@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="priorityOrder">
+      <h2 data-cy="priorityOrderDetailsHeading">
+        <span redsurgirTranslate="redsurgirApp.priorityOrder.detail.title">Priority Order</span>
+      </h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ priorityOrder.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.priorityOrder.qualifLogarit">Qualif Logarit</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + priorityOrder.qualifLogarit }}">{{
+            priorityOrder.qualifLogarit
+          }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.priorityOrder.qualifAffiliate">Qualif Affiliate</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + priorityOrder.qualifAffiliate }}">{{
+            priorityOrder.qualifAffiliate
+          }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.priorityOrder.qualifDefinitive">Qualif Definitive</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + priorityOrder.qualifDefinitive }}">{{
+            priorityOrder.qualifDefinitive
+          }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.priorityOrder.contactData">Contact Data</span></dt>
+        <dd>
+          <div *ngIf="priorityOrder.contactData">
+            <a [routerLink]="['/contact-data', priorityOrder.contactData?.id, 'view']">{{
+              priorityOrder.contactData?.documentNumberContact
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/priority-order', priorityOrder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "redsurgirApp": {
+    "qualification": {
+      "home": {
+        "title": "Qualifications",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Qualification",
+        "createOrEditLabel": "Crear o editar Qualification",
+        "notFound": "Ningún Qualifications encontrado"
+      },
+      "created": "Un nuevo Qualification ha sido creado con el identificador {{ param }}",
+      "updated": "Un Qualification ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Qualification ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Qualification {{ id }}?"
+      },
+      "detail": {
+        "title": "Qualification"
+      },
+      "id": "ID",
+      "qualif1": "Qualif 1",
+      "qualif2": "Qualif 2",
+      "qualif3": "Qualif 3",
+      "qualif4": "Qualif 4",
+      "qualif1BussinessViability": "Qualif 1 Bussiness Viability",
+      "contactData": "Contact Data"
+    }
+  }
+}

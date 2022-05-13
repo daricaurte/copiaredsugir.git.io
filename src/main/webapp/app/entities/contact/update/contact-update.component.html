@@ -1,0 +1,419 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="redsurgir-contact-heading"
+        data-cy="ContactCreateUpdateHeading"
+        redsurgirTranslate="redsurgirApp.contact.home.createOrEditLabel"
+      >
+        Create or edit a Contact
+      </h2>
+
+      <div>
+        <redsurgir-alert-error></redsurgir-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" redsurgirTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contact3rdSectorHl" for="field_contact3rdSectorHl"
+            >Contact 3rd Sector Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contact3rdSectorHl"
+            id="field_contact3rdSectorHl"
+            data-cy="contact3rdSectorHl"
+            formControlName="contact3rdSectorHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contact3rdSectorHl')!.invalid &&
+              (editForm.get('contact3rdSectorHl')!.dirty || editForm.get('contact3rdSectorHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contact3rdSectorHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactAcademyHl" for="field_contactAcademyHl"
+            >Contact Academy Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactAcademyHl"
+            id="field_contactAcademyHl"
+            data-cy="contactAcademyHl"
+            formControlName="contactAcademyHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactAcademyHl')!.invalid &&
+              (editForm.get('contactAcademyHl')!.dirty || editForm.get('contactAcademyHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactAcademyHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactTeethHl" for="field_contactTeethHl"
+            >Contact Teeth Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactTeethHl"
+            id="field_contactTeethHl"
+            data-cy="contactTeethHl"
+            formControlName="contactTeethHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactTeethHl')!.invalid && (editForm.get('contactTeethHl')!.dirty || editForm.get('contactTeethHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactTeethHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactEmployeeHl" for="field_contactEmployeeHl"
+            >Contact Employee Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactEmployeeHl"
+            id="field_contactEmployeeHl"
+            data-cy="contactEmployeeHl"
+            formControlName="contactEmployeeHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactEmployeeHl')!.invalid &&
+              (editForm.get('contactEmployeeHl')!.dirty || editForm.get('contactEmployeeHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactEmployeeHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactEntFinanHl" for="field_contactEntFinanHl"
+            >Contact Ent Finan Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactEntFinanHl"
+            id="field_contactEntFinanHl"
+            data-cy="contactEntFinanHl"
+            formControlName="contactEntFinanHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactEntFinanHl')!.invalid &&
+              (editForm.get('contactEntFinanHl')!.dirty || editForm.get('contactEntFinanHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactEntFinanHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactStatusHl" for="field_contactStatusHl"
+            >Contact Status Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactStatusHl"
+            id="field_contactStatusHl"
+            data-cy="contactStatusHl"
+            formControlName="contactStatusHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactStatusHl')!.invalid &&
+              (editForm.get('contactStatusHl')!.dirty || editForm.get('contactStatusHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactStatusHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.internationalContactHl" for="field_internationalContactHl"
+            >International Contact Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="internationalContactHl"
+            id="field_internationalContactHl"
+            data-cy="internationalContactHl"
+            formControlName="internationalContactHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('internationalContactHl')!.invalid &&
+              (editForm.get('internationalContactHl')!.dirty || editForm.get('internationalContactHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('internationalContactHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactMediaComuncHl" for="field_contactMediaComuncHl"
+            >Contact Media Comunc Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactMediaComuncHl"
+            id="field_contactMediaComuncHl"
+            data-cy="contactMediaComuncHl"
+            formControlName="contactMediaComuncHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactMediaComuncHl')!.invalid &&
+              (editForm.get('contactMediaComuncHl')!.dirty || editForm.get('contactMediaComuncHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactMediaComuncHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactOrgCommunityHl" for="field_contactOrgCommunityHl"
+            >Contact Org Community Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactOrgCommunityHl"
+            id="field_contactOrgCommunityHl"
+            data-cy="contactOrgCommunityHl"
+            formControlName="contactOrgCommunityHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactOrgCommunityHl')!.invalid &&
+              (editForm.get('contactOrgCommunityHl')!.dirty || editForm.get('contactOrgCommunityHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactOrgCommunityHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            redsurgirTranslate="redsurgirApp.contact.contactRegulatoryOrganismsHl"
+            for="field_contactRegulatoryOrganismsHl"
+            >Contact Regulatory Organisms Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactRegulatoryOrganismsHl"
+            id="field_contactRegulatoryOrganismsHl"
+            data-cy="contactRegulatoryOrganismsHl"
+            formControlName="contactRegulatoryOrganismsHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactRegulatoryOrganismsHl')!.invalid &&
+              (editForm.get('contactRegulatoryOrganismsHl')!.dirty || editForm.get('contactRegulatoryOrganismsHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactRegulatoryOrganismsHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactProveedoresHl" for="field_contactProveedoresHl"
+            >Contact Proveedores Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactProveedoresHl"
+            id="field_contactProveedoresHl"
+            data-cy="contactProveedoresHl"
+            formControlName="contactProveedoresHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactProveedoresHl')!.invalid &&
+              (editForm.get('contactProveedoresHl')!.dirty || editForm.get('contactProveedoresHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactProveedoresHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactSocialNetworks" for="field_contactSocialNetworks"
+            >Contact Social Networks</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactSocialNetworks"
+            id="field_contactSocialNetworks"
+            data-cy="contactSocialNetworks"
+            formControlName="contactSocialNetworks"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactSocialNetworks')!.invalid &&
+              (editForm.get('contactSocialNetworks')!.dirty || editForm.get('contactSocialNetworks')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactSocialNetworks')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactShareholdersHl" for="field_contactShareholdersHl"
+            >Contact Shareholders Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="contactShareholdersHl"
+            id="field_contactShareholdersHl"
+            data-cy="contactShareholdersHl"
+            formControlName="contactShareholdersHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('contactShareholdersHl')!.invalid &&
+              (editForm.get('contactShareholdersHl')!.dirty || editForm.get('contactShareholdersHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contactShareholdersHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.contact.contactData" for="field_contactData">Contact Data</label>
+          <select class="form-control" id="field_contactData" data-cy="contactData" name="contactData" formControlName="contactData">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contactDataOption.id === editForm.get('contactData')!.value?.id ? editForm.get('contactData')!.value : contactDataOption
+              "
+              *ngFor="let contactDataOption of contactDataSharedCollection; trackBy: trackContactDataById"
+            >
+              {{ contactDataOption.documentNumberContact }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

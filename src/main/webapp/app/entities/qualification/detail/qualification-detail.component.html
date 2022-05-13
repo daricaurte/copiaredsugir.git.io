@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="qualification">
+      <h2 data-cy="qualificationDetailsHeading"><span redsurgirTranslate="redsurgirApp.qualification.detail.title">Qualification</span></h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ qualification.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.qualification.qualif1">Qualif 1</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif1 }}">{{ qualification.qualif1 }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.qualification.qualif2">Qualif 2</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif2 }}">{{ qualification.qualif2 }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.qualification.qualif3">Qualif 3</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif3 }}">{{ qualification.qualif3 }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.qualification.qualif4">Qualif 4</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif4 }}">{{ qualification.qualif4 }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.qualification.qualif1BussinessViability">Qualif 1 Bussiness Viability</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif1BussinessViability }}">{{
+            qualification.qualif1BussinessViability
+          }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.qualification.contactData">Contact Data</span></dt>
+        <dd>
+          <div *ngIf="qualification.contactData">
+            <a [routerLink]="['/contact-data', qualification.contactData?.id, 'view']">{{
+              qualification.contactData?.documentNumberContact
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/qualification', qualification.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

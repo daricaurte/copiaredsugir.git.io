@@ -1,0 +1,131 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="redsurgir-relation-heading"
+        data-cy="RelationCreateUpdateHeading"
+        redsurgirTranslate="redsurgirApp.relation.home.createOrEditLabel"
+      >
+        Create or edit a Relation
+      </h2>
+
+      <div>
+        <redsurgir-alert-error></redsurgir-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" redsurgirTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.relation.familyRelation" for="field_familyRelation"
+            >Family Relation</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="familyRelation"
+            id="field_familyRelation"
+            data-cy="familyRelation"
+            formControlName="familyRelation"
+          />
+          <div
+            *ngIf="
+              editForm.get('familyRelation')!.invalid && (editForm.get('familyRelation')!.dirty || editForm.get('familyRelation')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('familyRelation')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.relation.workRelation" for="field_workRelation">Work Relation</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="workRelation"
+            id="field_workRelation"
+            data-cy="workRelation"
+            formControlName="workRelation"
+          />
+          <div
+            *ngIf="editForm.get('workRelation')!.invalid && (editForm.get('workRelation')!.dirty || editForm.get('workRelation')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('workRelation')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.relation.personalRelation" for="field_personalRelation"
+            >Personal Relation</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="personalRelation"
+            id="field_personalRelation"
+            data-cy="personalRelation"
+            formControlName="personalRelation"
+          />
+          <div
+            *ngIf="
+              editForm.get('personalRelation')!.invalid &&
+              (editForm.get('personalRelation')!.dirty || editForm.get('personalRelation')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('personalRelation')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.relation.contactData" for="field_contactData">Contact Data</label>
+          <select class="form-control" id="field_contactData" data-cy="contactData" name="contactData" formControlName="contactData">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contactDataOption.id === editForm.get('contactData')!.value?.id ? editForm.get('contactData')!.value : contactDataOption
+              "
+              *ngFor="let contactDataOption of contactDataSharedCollection; trackBy: trackContactDataById"
+            >
+              {{ contactDataOption.documentNumberContact }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "redsurgirApp": {
+    "Rol": {
+      "null": "",
+      "AFFILIATE": "Affiliate",
+      "COACH": "Coach"
+    }
+  }
+}

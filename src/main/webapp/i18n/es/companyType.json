@@ -1,0 +1,27 @@
+{
+  "redsurgirApp": {
+    "companyType": {
+      "home": {
+        "title": "Company Types",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Company Type",
+        "createOrEditLabel": "Crear o editar Company Type",
+        "notFound": "Ningún Company Types encontrado"
+      },
+      "created": "Un nuevo Company Type ha sido creado con el identificador {{ param }}",
+      "updated": "Un Company Type ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Company Type ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Company Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Company Type"
+      },
+      "id": "ID",
+      "primarySector": "Primary Sector",
+      "secondarySector": "Secondary Sector",
+      "tertiarySector": "Tertiary Sector",
+      "contactData": "Contact Data"
+    }
+  }
+}

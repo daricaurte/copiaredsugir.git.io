@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="companyType">
+      <h2 data-cy="companyTypeDetailsHeading"><span redsurgirTranslate="redsurgirApp.companyType.detail.title">Company Type</span></h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ companyType.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.companyType.primarySector">Primary Sector</span></dt>
+        <dd>
+          <span>{{ companyType.primarySector }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.companyType.secondarySector">Secondary Sector</span></dt>
+        <dd>
+          <span>{{ companyType.secondarySector }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.companyType.tertiarySector">Tertiary Sector</span></dt>
+        <dd>
+          <span>{{ companyType.tertiarySector }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.companyType.contactData">Contact Data</span></dt>
+        <dd>
+          <div *ngIf="companyType.contactData">
+            <a [routerLink]="['/contact-data', companyType.contactData?.id, 'view']">{{
+              companyType.contactData?.documentNumberContact
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/company-type', companyType.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

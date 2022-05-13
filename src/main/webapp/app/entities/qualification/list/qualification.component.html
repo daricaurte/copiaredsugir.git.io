@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="QualificationHeading">
+    <span redsurgirTranslate="redsurgirApp.qualification.home.title">Qualifications</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.qualification.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-qualification"
+        [routerLink]="['/qualification/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span redsurgirTranslate="redsurgirApp.qualification.home.createLabel"> Create a new Qualification </span>
+      </button>
+    </div>
+  </h2>
+
+  <redsurgir-alert-error></redsurgir-alert-error>
+
+  <redsurgir-alert></redsurgir-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="qualifications?.length === 0">
+    <span redsurgirTranslate="redsurgirApp.qualification.home.notFound">No qualifications found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="qualifications && qualifications.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span redsurgirTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.qualification.qualif1">Qualif 1</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.qualification.qualif2">Qualif 2</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.qualification.qualif3">Qualif 3</span></th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.qualification.qualif4">Qualif 4</span></th>
+          <th scope="col">
+            <span redsurgirTranslate="redsurgirApp.qualification.qualif1BussinessViability">Qualif 1 Bussiness Viability</span>
+          </th>
+          <th scope="col"><span redsurgirTranslate="redsurgirApp.qualification.contactData">Contact Data</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let qualification of qualifications; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/qualification', qualification.id, 'view']">{{ qualification.id }}</a>
+          </td>
+          <td redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif1 }}">{{ qualification.qualif1 }}</td>
+          <td redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif2 }}">{{ qualification.qualif2 }}</td>
+          <td redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif3 }}">{{ qualification.qualif3 }}</td>
+          <td redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif4 }}">{{ qualification.qualif4 }}</td>
+          <td redsurgirTranslate="{{ 'redsurgirApp.Designation.' + qualification.qualif1BussinessViability }}">
+            {{ qualification.qualif1BussinessViability }}
+          </td>
+          <td>
+            <div *ngIf="qualification.contactData">
+              <a [routerLink]="['/contact-data', qualification.contactData?.id, 'view']">{{
+                qualification.contactData?.documentNumberContact
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/qualification', qualification.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/qualification', qualification.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(qualification)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" redsurgirTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

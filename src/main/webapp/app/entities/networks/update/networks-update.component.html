@@ -1,0 +1,419 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="redsurgir-networks-heading"
+        data-cy="NetworksCreateUpdateHeading"
+        redsurgirTranslate="redsurgirApp.networks.home.createOrEditLabel"
+      >
+        Create or edit a Networks
+      </h2>
+
+      <div>
+        <redsurgir-alert-error></redsurgir-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" redsurgirTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.networks3rdSectorHl" for="field_networks3rdSectorHl"
+            >Networks 3rd Sector Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="networks3rdSectorHl"
+            id="field_networks3rdSectorHl"
+            data-cy="networks3rdSectorHl"
+            formControlName="networks3rdSectorHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('networks3rdSectorHl')!.invalid &&
+              (editForm.get('networks3rdSectorHl')!.dirty || editForm.get('networks3rdSectorHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('networks3rdSectorHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.academicNetworksHl" for="field_academicNetworksHl"
+            >Academic Networks Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="academicNetworksHl"
+            id="field_academicNetworksHl"
+            data-cy="academicNetworksHl"
+            formControlName="academicNetworksHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('academicNetworksHl')!.invalid &&
+              (editForm.get('academicNetworksHl')!.dirty || editForm.get('academicNetworksHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('academicNetworksHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.customerNetworksHl" for="field_customerNetworksHl"
+            >Customer Networks Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="customerNetworksHl"
+            id="field_customerNetworksHl"
+            data-cy="customerNetworksHl"
+            formControlName="customerNetworksHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('customerNetworksHl')!.invalid &&
+              (editForm.get('customerNetworksHl')!.dirty || editForm.get('customerNetworksHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('customerNetworksHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.employeeNetworksHl" for="field_employeeNetworksHl"
+            >Employee Networks Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="employeeNetworksHl"
+            id="field_employeeNetworksHl"
+            data-cy="employeeNetworksHl"
+            formControlName="employeeNetworksHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('employeeNetworksHl')!.invalid &&
+              (editForm.get('employeeNetworksHl')!.dirty || editForm.get('employeeNetworksHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('employeeNetworksHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.networksEntFinanHl" for="field_networksEntFinanHl"
+            >Networks Ent Finan Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="networksEntFinanHl"
+            id="field_networksEntFinanHl"
+            data-cy="networksEntFinanHl"
+            formControlName="networksEntFinanHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('networksEntFinanHl')!.invalid &&
+              (editForm.get('networksEntFinanHl')!.dirty || editForm.get('networksEntFinanHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('networksEntFinanHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.stateNetworksHl" for="field_stateNetworksHl"
+            >State Networks Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="stateNetworksHl"
+            id="field_stateNetworksHl"
+            data-cy="stateNetworksHl"
+            formControlName="stateNetworksHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('stateNetworksHl')!.invalid &&
+              (editForm.get('stateNetworksHl')!.dirty || editForm.get('stateNetworksHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stateNetworksHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.internationalNetworksHl" for="field_internationalNetworksHl"
+            >International Networks Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="internationalNetworksHl"
+            id="field_internationalNetworksHl"
+            data-cy="internationalNetworksHl"
+            formControlName="internationalNetworksHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('internationalNetworksHl')!.invalid &&
+              (editForm.get('internationalNetworksHl')!.dirty || editForm.get('internationalNetworksHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('internationalNetworksHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.mediaNetworksComuncHl" for="field_mediaNetworksComuncHl"
+            >Media Networks Comunc Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="mediaNetworksComuncHl"
+            id="field_mediaNetworksComuncHl"
+            data-cy="mediaNetworksComuncHl"
+            formControlName="mediaNetworksComuncHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('mediaNetworksComuncHl')!.invalid &&
+              (editForm.get('mediaNetworksComuncHl')!.dirty || editForm.get('mediaNetworksComuncHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('mediaNetworksComuncHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.communityOrgNetworksHl" for="field_communityOrgNetworksHl"
+            >Community Org Networks Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="communityOrgNetworksHl"
+            id="field_communityOrgNetworksHl"
+            data-cy="communityOrgNetworksHl"
+            formControlName="communityOrgNetworksHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('communityOrgNetworksHl')!.invalid &&
+              (editForm.get('communityOrgNetworksHl')!.dirty || editForm.get('communityOrgNetworksHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('communityOrgNetworksHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            redsurgirTranslate="redsurgirApp.networks.regulatoryOrganismsNetworks"
+            for="field_regulatoryOrganismsNetworks"
+            >Regulatory Organisms Networks</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="regulatoryOrganismsNetworks"
+            id="field_regulatoryOrganismsNetworks"
+            data-cy="regulatoryOrganismsNetworks"
+            formControlName="regulatoryOrganismsNetworks"
+          />
+          <div
+            *ngIf="
+              editForm.get('regulatoryOrganismsNetworks')!.invalid &&
+              (editForm.get('regulatoryOrganismsNetworks')!.dirty || editForm.get('regulatoryOrganismsNetworks')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('regulatoryOrganismsNetworks')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.networksProvidersHl" for="field_networksProvidersHl"
+            >Networks Providers Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="networksProvidersHl"
+            id="field_networksProvidersHl"
+            data-cy="networksProvidersHl"
+            formControlName="networksProvidersHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('networksProvidersHl')!.invalid &&
+              (editForm.get('networksProvidersHl')!.dirty || editForm.get('networksProvidersHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('networksProvidersHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.socialNetworks" for="field_socialNetworks"
+            >Social Networks</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="socialNetworks"
+            id="field_socialNetworks"
+            data-cy="socialNetworks"
+            formControlName="socialNetworks"
+          />
+          <div
+            *ngIf="
+              editForm.get('socialNetworks')!.invalid && (editForm.get('socialNetworks')!.dirty || editForm.get('socialNetworks')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('socialNetworks')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.shareholderNetworksHl" for="field_shareholderNetworksHl"
+            >Shareholder Networks Hl</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="shareholderNetworksHl"
+            id="field_shareholderNetworksHl"
+            data-cy="shareholderNetworksHl"
+            formControlName="shareholderNetworksHl"
+          />
+          <div
+            *ngIf="
+              editForm.get('shareholderNetworksHl')!.invalid &&
+              (editForm.get('shareholderNetworksHl')!.dirty || editForm.get('shareholderNetworksHl')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('shareholderNetworksHl')?.errors?.required"
+              redsurgirTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" redsurgirTranslate="redsurgirApp.networks.contactData" for="field_contactData">Contact Data</label>
+          <select class="form-control" id="field_contactData" data-cy="contactData" name="contactData" formControlName="contactData">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                contactDataOption.id === editForm.get('contactData')!.value?.id ? editForm.get('contactData')!.value : contactDataOption
+              "
+              *ngFor="let contactDataOption of contactDataSharedCollection; trackBy: trackContactDataById"
+            >
+              {{ contactDataOption.documentNumberContact }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

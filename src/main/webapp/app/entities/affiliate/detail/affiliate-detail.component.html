@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="affiliate">
+      <h2 data-cy="affiliateDetailsHeading"><span redsurgirTranslate="redsurgirApp.affiliate.detail.title">Affiliate</span></h2>
+
+      <hr />
+
+      <redsurgir-alert-error></redsurgir-alert-error>
+
+      <redsurgir-alert></redsurgir-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span redsurgirTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ affiliate.id }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.documentNumber">Document Number</span></dt>
+        <dd>
+          <span>{{ affiliate.documentNumber }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ affiliate.firstName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.secondName">Second Name</span></dt>
+        <dd>
+          <span>{{ affiliate.secondName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.firstLastName">First Last Name</span></dt>
+        <dd>
+          <span>{{ affiliate.firstLastName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.secondLastName">Second Last Name</span></dt>
+        <dd>
+          <span>{{ affiliate.secondLastName }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.neighborhood">Neighborhood</span></dt>
+        <dd>
+          <span>{{ affiliate.neighborhood }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.cellPhoneNumber">Cell Phone Number</span></dt>
+        <dd>
+          <span>{{ affiliate.cellPhoneNumber }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.city">City</span></dt>
+        <dd>
+          <span>{{ affiliate.city }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.department">Department</span></dt>
+        <dd>
+          <span>{{ affiliate.department }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.email">Email</span></dt>
+        <dd>
+          <span>{{ affiliate.email }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.callsign">Callsign</span></dt>
+        <dd>
+          <span>{{ affiliate.callsign }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.country">Country</span></dt>
+        <dd>
+          <span>{{ affiliate.country }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ affiliate.phoneNumber }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.rol">Rol</span></dt>
+        <dd>
+          <span redsurgirTranslate="{{ 'redsurgirApp.Rol.' + affiliate.rol }}">{{ affiliate.rol }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.user">User</span></dt>
+        <dd>
+          <span>{{ affiliate.user?.login }}</span>
+        </dd>
+        <dt><span redsurgirTranslate="redsurgirApp.affiliate.documentType">Document Type</span></dt>
+        <dd>
+          <div *ngIf="affiliate.documentType">
+            <a [routerLink]="['/document-type', affiliate.documentType?.id, 'view']">{{ affiliate.documentType?.documentName }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/affiliate', affiliate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span redsurgirTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
